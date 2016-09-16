@@ -1,0 +1,16 @@
+@import '../shared/variables';
+
+.desc {
+  box-sizing: border-box;
+  padding: 10px 32px;
+  background: #2f2f4c;
+  color: #fff;
+  font-family: $sans-serif-font-family;
+  font-size: .8rem;
+  font-weight: 300;
+  line-height: 1.5;
+  position: absolute;
+  right: 0;
+  bottom: 2rem;
+  width: 640px;
+}

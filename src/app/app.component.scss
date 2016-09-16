@@ -1,0 +1,46 @@
+@import './shared/variables';
+
+header {
+  box-sizing: border-box;
+  color: $text-color;
+  font-family: $sans-serif-font-family;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.logo {
+  float: right;
+  transform-origin: 30px 8px;
+}
+
+.brand {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.heading {
+
+  .title {
+    font-weight: normal;
+    margin: .25rem auto;
+  }
+
+  .subtitle {
+    font-weight: 300;
+    font-style: italic;
+    margin: 0;
+    margin-bottom: 1.25rem;
+  }
+
+}
+
+main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}

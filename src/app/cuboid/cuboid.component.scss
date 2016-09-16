@@ -1,0 +1,63 @@
+$width: 200px;
+$height: 200px;
+$depth: 5px;
+
+.cuboid {
+  position: relative;
+  transform-style: preserve-3d;
+  width: $width;
+  height: $height;
+}
+
+.face {
+  position: absolute;
+  box-sizing: border-box;
+  backface-visibility: hidden;
+
+  // Debugging
+  border: 1px solid #ccc;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  color: #333;
+  font-size: 12px;
+
+  &.front, &.back {
+    width: $width;
+    height: $height;
+  }
+
+  &.left, &.right {
+    width: $depth;
+    height: $height;
+  }
+
+  &.top, &.bottom {
+    width: $width;
+    height: $depth;
+  }
+
+  &.front {
+    transform: translateZ($depth / 2);
+  }
+
+  &.back {
+    transform: rotateY(180deg) translateZ($depth / 2);
+  }
+
+  &.left {
+    transform: rotateY(-90deg) translateZ($depth / 2);
+  }
+
+  &.right {
+    transform: rotateY(90deg) translateZ($width - ($depth / 2));
+  }
+
+  &.top {
+    transform: rotateX(90deg) translateZ($depth / 2);
+  }
+
+  &.bottom {
+    transform: rotateX(-90deg) translateZ($height - $depth / 2);
+  }
+}

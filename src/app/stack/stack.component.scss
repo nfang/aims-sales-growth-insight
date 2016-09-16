@@ -1,0 +1,31 @@
+:host {
+  perspective: 1200px;
+  perspective-origin: center right;
+  transform-style: preserve-3d;
+}
+
+.stack {
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(90deg) rotate(30deg);
+}
+
+.board {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  width: 600px;
+  transform-style: preserve-3d;
+}
+
+.board.top {
+  transform: translateZ(50px);
+}
+
+.board.middle {
+  /*transform: translateZ(90px);*/
+}
+
+.board.bottom {
+  transform: translateZ(-50px);
+}
