@@ -5,9 +5,11 @@ $sidebar-font-weight: 300;
 
 :host {
   display: block;
+  margin-right: 1rem;
 }
 
 .sidebar {
+  box-sizing: border-box;
   padding-left: 1rem;
   width: 220px;
 }

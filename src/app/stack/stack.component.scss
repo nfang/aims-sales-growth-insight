@@ -1,31 +1,47 @@
 :host {
-  perspective: 1200px;
-  perspective-origin: center right;
+  perspective: 2400px;
+  perspective-origin: 75% -280px;
   transform-style: preserve-3d;
+  flex-grow: 1;
+  align-self: stretch;
 }
 
 .stack {
   position: relative;
   transform-style: preserve-3d;
-  transform: rotateX(90deg) rotate(30deg);
+  transform-origin: center center;
+  transform: rotateX(90deg) rotate(18deg) translateZ(150px) translateX(200px);
+  height: 100%;
 }
 
 .board {
   position: absolute;
   display: flex;
   flex-wrap: wrap;
-  width: 600px;
+  width: 720px;
+  transform-origin: center center;
   transform-style: preserve-3d;
 }
 
 .board.top {
-  transform: translateZ(50px);
+  transform: translateZ(75px);
+  // cuboid /deep/ .face {
+  //   background: #cf1945;
+  //   border-color: darken(#cf1945, 20%);
+  // }
 }
 
 .board.middle {
-  /*transform: translateZ(90px);*/
+  // cuboid /deep/ .face {
+  //   background: #2f2f4c;
+  //   border-color: darken(#2f2f4c, 20%);
+  // }
 }
 
 .board.bottom {
-  transform: translateZ(-50px);
+  transform: translateZ(-75px);
+  // cuboid /deep/ .face {
+  //   background: #282123;
+  //   border-color: darken(#282123, 20%);
+  // }
 }
