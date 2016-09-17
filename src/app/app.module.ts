@@ -8,6 +8,7 @@ import { CuboidComponent } from './cuboid/cuboid.component';
 import { StackComponent } from './stack/stack.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { DescriptionComponent } from './description/description.component';
+import { InsightService } from './insight.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { DescriptionComponent } from './description/description.component';
     ReactiveFormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [InsightService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
