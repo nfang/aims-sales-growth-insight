@@ -6,6 +6,10 @@ import {
   transition,
   trigger
 } from '@angular/core';
+import { FormControl } from '@angular/forms';
+
+import { Observable } from 'rxjs/Rx';
+import 'rxjs/add/operator/debounce';
 
 @Component({
   selector: 'sidebar',
@@ -16,10 +20,17 @@ import {
       state('in', style({ opacity: 1, height: '23px' })),
       transition('void => *', [
         style({ opacity: 0, height: 0 }),
-        animate('300ms ease-in')
+        animate('200ms')
       ]),
       transition('* => void', [
-        animate('300ms ease-out', style({ opacity: 0, height: 0 }))
+        animate('200ms', style({ opacity: 0, height: 0 }))
+      ])
+    ]),
+    trigger('sidebarEnter', [
+      state('in', style({ transform: 'translateX(0)' })),
+      transition('void => *', [
+        style({ transform: 'translateX(-100%)' }),
+        animate('300ms cubic-bezier(0.4, 0.0, 0.2, 1)')
       ])
     ])
   ]
@@ -52,21 +63,32 @@ export class SidebarComponent implements OnInit {
     'Employee Benchmarking'
   ];
 
-  get items(): Array<string> {
-    if (!/^\w*$/.test(this.query)) {
-      return this._items;
-    }
+  private query: any = '';
 
-    return this._items.filter((val) => {
-      return val.search(new RegExp(this.query, 'i')) >= 0;
+  get items(): Array<string> {
+    return this._items.filter(item => {
+      return item.search(this.query) >= 0;
     });
   }
 
-  query: string = '';
+  searchControl: FormControl = new FormControl();
 
   constructor() { }
 
   ngOnInit() {
+    this.searchControl.valueChanges
+      .debounce((value) => {
+        // Emits nothing when input contains only whitespaces
+        if (/^\s+$/.test(value)) {
+          return Observable.never();
+        }
+
+        return value && value.trim().length && /^\w*$/.test(this.query)
+          ? Observable.timer(300) : Observable.timer(0);
+      })
+      .subscribe(query => {
+        this.query = new RegExp(query, 'i');
+      });
   }
 
 }
