@@ -1,5 +1,7 @@
 <input #searchInput class="search" type="text" placeholder="Search"
   (keyup)="query = searchInput.value">
 <ul>
-  <li *ngFor="let item of items">{{item}}</li>
+  <li *ngFor="let item of items" [@itemInOut]="in">
+    {{item}}
+  </li>
 </ul>
