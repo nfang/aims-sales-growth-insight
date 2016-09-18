@@ -10,7 +10,7 @@
   position: relative;
   transform-style: preserve-3d;
   transform-origin: center center;
-  transform: rotateX(90deg) rotate(18deg) translateZ(180px) translateX(240px) translateY(180px);
+  transform: rotateX(90deg) rotate(18deg) translateZ(180px) translateX(30%) translateY(180px);
   height: 100%;
 }
 
@@ -30,7 +30,7 @@
 .board.bottom { transform: translateZ(-75px); }
 
 .shadow {
-  background: #eee;
+  background: #ddd;
   width: 720px;
   height: 480px;
   position: absolute;
