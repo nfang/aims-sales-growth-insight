@@ -25,25 +25,37 @@
 
 .board.top {
   transform: translateZ(75px);
-  // cuboid /deep/ .face {
-  //   background: #cf1945;
-  //   border-color: darken(#cf1945, 20%);
-  // }
+  cuboid /deep/ .face {
+    background: #cf1945;
+    border-color: darken(#cf1945, 5%);
+  }
+
+  cuboid /deep/ .face.side {
+    background: darken(#cf1945, 5%);
+  }
 }
 
 .board.middle {
-  // cuboid /deep/ .face {
-  //   background: #2f2f4c;
-  //   border-color: darken(#2f2f4c, 20%);
-  // }
+  cuboid /deep/ .face {
+    background: #2f2f4c;
+    border-color: darken(#2f2f4c, 5%);
+  }
+
+  cuboid /deep/ .face.side {
+    background: darken(#2f2f4c, 5%);
+  }
 }
 
 .board.bottom {
   transform: translateZ(-75px);
-  // cuboid /deep/ .face {
-  //   background: #282123;
-  //   border-color: darken(#282123, 20%);
-  // }
+  cuboid /deep/ .face {
+    background: #282123;
+    border-color: darken(#282123, 5%);
+  }
+
+  cuboid /deep/ .face.side {
+    background: darken(#282123, 5%);
+  }
 }
 
 .shadow {
