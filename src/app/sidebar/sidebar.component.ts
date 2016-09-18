@@ -24,7 +24,7 @@ import 'rxjs/add/operator/debounce';
       state('in', style({ transform: 'translateX(0)' })),
       transition('void => *', [
         style({ transform: 'translateX(-100%)' }),
-        animate('300ms cubic-bezier(0.4, 0.0, 0.2, 1)')
+        animate('300ms 200ms cubic-bezier(0.4, 0.0, 0.2, 1)')
       ])
     ])
   ]
@@ -91,5 +91,5 @@ export class SidebarComponent implements OnInit {
   select(item) {
     this._onSelectEmitter.emit(item);
   }
-  
+
 }

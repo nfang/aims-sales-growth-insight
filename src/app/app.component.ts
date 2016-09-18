@@ -24,7 +24,7 @@ import { animate, state, style, transition, trigger } from '@angular/core';
       state('in', style({ transform: 'translateY(0)' })),
       transition('void => *', [
         style({ transform: 'translateY(-100%)' }),
-        animate('500ms ease-out')
+        animate('500ms 500ms ease-out')
       ])
     ])
   ]
