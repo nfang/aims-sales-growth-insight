@@ -1,5 +1,6 @@
 <div class="sidebar" [@sidebarEnter]>
-  <input class="search" type="search" placeholder="Search" [formControl]="searchControl">
+  <input class="search" type="search" placeholder="Search"
+    [formControl]="searchControl" autofocus>
   <ul>
     <li *ngFor="let item of items" [@itemInOut]="'in'">
       {{item}}

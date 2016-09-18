@@ -17,13 +17,13 @@ import 'rxjs/add/operator/debounce';
   styleUrls: ['./sidebar.component.scss'],
   animations: [
     trigger('itemInOut', [
-      state('in', style({ opacity: 1, height: '23px' })),
+      state('in', style({ opacity: 1, 'max-height': '100px' })),
       transition('void => *', [
-        style({ opacity: 0, height: 0 }),
+        style({ opacity: 0, 'max-height': 0 }),
         animate('200ms')
       ]),
       transition('* => void', [
-        animate('200ms', style({ opacity: 0, height: 0 }))
+        animate('200ms', style({ opacity: 0, 'max-height': 0 }))
       ])
     ]),
     trigger('sidebarEnter', [
