@@ -45,3 +45,12 @@
   //   border-color: darken(#282123, 20%);
   // }
 }
+
+.shadow {
+  background: #eee;
+  width: 720px;
+  height: 480px;
+  position: absolute;
+  transform-style: preserve-3d;
+  transform: translateZ(-280px);
+}
