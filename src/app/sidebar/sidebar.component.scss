@@ -2,6 +2,7 @@
 
 $sidebar-font-size: .8rem;
 $sidebar-font-weight: 300;
+$sidebar-width: 240px;
 
 :host {
   display: block;
@@ -11,7 +12,7 @@ $sidebar-font-weight: 300;
 .sidebar {
   box-sizing: border-box;
   padding-left: 1rem;
-  width: 220px;
+  width: $sidebar-width;
 }
 
 ul {
