@@ -1,11 +1,5 @@
 import { Component } from '@angular/core';
-import {
-  trigger,
-  state,
-  style,
-  transition,
-  animate
-} from '@angular/core';
+import { animate, state, style, transition, trigger } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -36,9 +30,13 @@ import {
   ]
 })
 export class AppComponent {
-  title = 'app works!';
+  title = '';
 
   constructor() {
+  }
 
+  setContent(content) {
+    this.title = '';
+    setTimeout(() => { this.title = content; }, 200);
   }
 }
