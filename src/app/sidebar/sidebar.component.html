@@ -2,7 +2,7 @@
   <input class="search" type="search" placeholder="Search"
     [formControl]="searchControl" autofocus>
   <ul>
-    <li *ngFor="let item of items" [@itemInOut]="'in'">
+    <li *ngFor="let item of items" [@itemInOut]="'in'" (click)="select(item)">
       {{item}}
     </li>
   </ul>

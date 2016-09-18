@@ -9,7 +9,7 @@
   </div>
 </header>
 <main>
-  <sidebar></sidebar>
+  <sidebar (select)="setContent($event)"></sidebar>
   <stack></stack>
-  <description></description>
+  <description [content]="title"></description>
 </main>

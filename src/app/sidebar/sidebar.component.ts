@@ -1,11 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {
-  animate,
-  style,
-  state,
-  transition,
-  trigger
-} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { animate, style, state, transition, trigger } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 import { Observable } from 'rxjs/Rx';
@@ -63,6 +57,9 @@ export class SidebarComponent implements OnInit {
     'Employee Benchmarking'
   ];
 
+  @Output('select')
+  _onSelectEmitter: EventEmitter<string> = new EventEmitter<string>();
+
   private query: any = '';
 
   get items(): Array<string> {
@@ -91,4 +88,8 @@ export class SidebarComponent implements OnInit {
       });
   }
 
+  select(item) {
+    this._onSelectEmitter.emit(item);
+  }
+  
 }
