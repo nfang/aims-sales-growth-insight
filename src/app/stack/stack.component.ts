@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/core';
+
+import { InsightService } from '../shared/insight.service';
+import { Element } from '../shared/element';
 
 @Component({
   selector: 'stack',
@@ -38,9 +41,24 @@ import { animate, state, style, transition, trigger } from '@angular/core';
 })
 export class StackComponent implements OnInit {
 
-  constructor() { }
+  @Input() highlightedElements: Array<Element>;
+
+  get salesElements(): Array<Element> {
+    return this._service.elements.filter(el => el.category.id === 1);
+  }
+
+  get operationalElements(): Array<Element> {
+    return this._service.elements.filter(el => el.category.id === 2);
+  }
+
+  isHighlighted(element: Element): boolean {
+    return !!this.highlightedElements.find(el => el.id === element.id);
+  }
+
+  constructor(private _service: InsightService) { }
 
   ngOnInit() {
+    this.highlightedElements = new Array<Element>();
   }
 
 }

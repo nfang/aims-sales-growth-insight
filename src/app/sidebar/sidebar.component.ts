@@ -5,6 +5,9 @@ import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/debounce';
 
+import { InsightService } from '../shared/insight.service';
+import { Objective } from '../shared/objective';
+
 @Component({
   selector: 'sidebar',
   templateUrl: './sidebar.component.html',
@@ -31,46 +34,24 @@ import 'rxjs/add/operator/debounce';
 })
 export class SidebarComponent implements OnInit {
 
-  private _items: Array<string> = [
-    'Value Selling',
-    'Ability to Differentiate',
-    'Overcoming Objections',
-    'Sales Competencies',
-    'Risk & Insurance Plans',
-    'Bid Preparation',
-    'BD Tools & Templates',
-    'Service Excellence',
-    'Product Development',
-    '(Human Asset & Environmental)',
-    'Business Planning',
-    'Business Benchmarking',
-    'Ideal Customer Profile',
-    'Industry Segmentation',
-    'Marketing',
-    'Website Development',
-    'Search Engine Optimisation',
-    'Sales Process',
-    'Lead Generation Outsourcing',
-    'Net Promoter Score',
-    'Business Growth Coaching',
-    'Top Performer',
-    'Employee Benchmarking'
-  ];
+  private _items: Array<Objective>;
 
   @Output('select')
-  _onSelectEmitter: EventEmitter<string> = new EventEmitter<string>();
+  _onSelectEmitter: EventEmitter<Objective> = new EventEmitter<Objective>();
 
   private query: any = '';
 
-  get items(): Array<string> {
+  get items(): Array<Objective> {
     return this._items.filter(item => {
-      return item.search(this.query) >= 0;
+      return item.name.search(this.query) >= 0;
     });
   }
 
   searchControl: FormControl = new FormControl();
 
-  constructor() { }
+  constructor(private _service: InsightService) {
+    this._items = this._service.objectives;
+  }
 
   ngOnInit() {
     this.searchControl.valueChanges

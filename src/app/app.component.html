@@ -10,6 +10,6 @@
 </header>
 <main>
   <sidebar (select)="setContent($event)"></sidebar>
-  <stack></stack>
-  <description [content]="title"></description>
+  <stack [highlightedElements]="selectedElements"></stack>
+  <description [content]="selectedObjective.description"></description>
 </main>

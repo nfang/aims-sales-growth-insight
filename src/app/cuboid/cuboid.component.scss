@@ -23,6 +23,7 @@ $depth: 8px;
   color: #333;
   font-family: $sans-serif-font-family;
   font-size: 12px;
+  transition: background .1s linear;
 
   &.front, &.back {
     width: $width;

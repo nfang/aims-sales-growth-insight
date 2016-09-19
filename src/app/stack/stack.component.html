@@ -1,21 +1,13 @@
 <div class="stack">
 
   <div class="board top" [@topBoardEnter]>
-    <cuboid [color]="'#cf1945'" [highlight]="true"></cuboid>
-    <cuboid [color]="'#cf1945'"></cuboid>
-    <cuboid [color]="'#cf1945'"></cuboid>
-    <cuboid [color]="'#cf1945'" [highlight]="true"></cuboid>
-    <cuboid [color]="'#cf1945'"></cuboid>
-    <cuboid [color]="'#cf1945'"></cuboid>
+    <cuboid *ngFor="let item of salesElements"
+      [color]="'#cf1945'" [highlight]="isHighlighted(item)"></cuboid>
   </div>
 
   <div class="board middle" [@midBoardEnter]>
-    <cuboid [color]="'#2f2f4c'"></cuboid>
-    <cuboid [color]="'#2f2f4c'"></cuboid>
-    <cuboid [color]="'#2f2f4c'" [highlight]="true"></cuboid>
-    <cuboid [color]="'#2f2f4c'"></cuboid>
-    <cuboid [color]="'#2f2f4c'" [highlight]="true"></cuboid>
-    <cuboid [color]="'#2f2f4c'"></cuboid>
+    <cuboid *ngFor="let item of operationalElements"
+      [color]="'#2f2f4c'" [highlight]="isHighlighted(item)"></cuboid>
   </div>
 
   <div class="board bottom" [@btmBoardEnter]>
@@ -24,7 +16,7 @@
     <cuboid [color]="'#282123'"></cuboid>
     <cuboid [color]="'#282123'"></cuboid>
     <cuboid [color]="'#282123'"></cuboid>
-    <cuboid [color]="'#282123'" [highlight]="true"></cuboid>
+    <cuboid [color]="'#282123'"></cuboid>
   </div>
 
   <div class="shadow" [@shadowEnter]></div>
