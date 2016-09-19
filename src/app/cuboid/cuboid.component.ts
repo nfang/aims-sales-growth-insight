@@ -11,6 +11,7 @@ export class CuboidComponent implements OnInit {
 
   @Input() color: string;
   @Input() highlight: boolean;
+  @Input() text: string;
 
   constructor() { }
 

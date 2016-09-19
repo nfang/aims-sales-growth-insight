@@ -2,7 +2,7 @@
 
 $sidebar-font-size: .8rem;
 $sidebar-font-weight: 300;
-$sidebar-width: 240px;
+$sidebar-width: 280px;
 
 :host {
   display: block;
@@ -39,7 +39,7 @@ li {
   transition: color .3s linear, background .3s linear;
 
   &:hover {
-    background: #f4f4f4;
+    background: #e4e4e4;
     color: #cf1945;
   }
 }

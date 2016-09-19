@@ -2,12 +2,16 @@
 
   <div class="board top" [@topBoardEnter]>
     <cuboid *ngFor="let item of salesElements"
-      [color]="'#cf1945'" [highlight]="isHighlighted(item)"></cuboid>
+      [color]="'#cf1945'"
+      [highlight]="isHighlighted(item)"
+      [text]="item.name"></cuboid>
   </div>
 
   <div class="board middle" [@midBoardEnter]>
     <cuboid *ngFor="let item of operationalElements"
-      [color]="'#2f2f4c'" [highlight]="isHighlighted(item)"></cuboid>
+      [color]="'#2f2f4c'"
+      [highlight]="isHighlighted(item)"
+      [text]="item.name"></cuboid>
   </div>
 
   <div class="board bottom" [@btmBoardEnter]>

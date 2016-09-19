@@ -1,3 +1,5 @@
+$board-spacing: 85px;
+
 :host {
   perspective: 2400px;
   perspective-origin: 75% -280px;
@@ -23,11 +25,11 @@
   transform-style: preserve-3d;
 }
 
-.board.top { transform: translateZ(75px); }
+.board.top { transform: translateZ($board-spacing); }
 
 .board.middle { }
 
-.board.bottom { transform: translateZ(-75px); }
+.board.bottom { transform: translateZ(-$board-spacing); }
 
 .shadow {
   background: #ddd;
