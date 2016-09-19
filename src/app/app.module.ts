@@ -8,7 +8,7 @@ import { CuboidComponent } from './cuboid/cuboid.component';
 import { StackComponent } from './stack/stack.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { DescriptionComponent } from './description/description.component';
-import { InsightService } from './insight.service';
+import { InsightService } from './shared/insight.service';
 
 @NgModule({
   declarations: [

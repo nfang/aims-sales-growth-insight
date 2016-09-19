@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/core';
 
+import { InsightService } from './shared/insight.service';
+import { Objective } from './shared/objective';
+import { Element } from './shared/element';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -30,13 +34,16 @@ import { animate, state, style, transition, trigger } from '@angular/core';
   ]
 })
 export class AppComponent {
-  title = '';
+  selectedObjective: Objective = new Objective();
 
-  constructor() {
+  get selectedElements(): Array<Element> {
+    return this._service.findElementsFor(this.selectedObjective);
   }
 
-  setContent(content) {
-    this.title = '';
-    setTimeout(() => { this.title = content; }, 200);
+  constructor(private _service: InsightService) { }
+
+  setContent(objective: Objective) {
+    this.selectedObjective = new Objective();
+    setTimeout(() => { this.selectedObjective = objective; }, 200);
   }
 }

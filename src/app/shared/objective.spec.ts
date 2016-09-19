@@ -1,10 +1,10 @@
 /* tslint:disable:no-unused-variable */
 
 import { addProviders, async, inject } from '@angular/core/testing';
-import {Department} from './department';
+import { Objective } from './objective';
 
-describe('Department', () => {
+describe('Objective', () => {
   it('should create an instance', () => {
-    expect(new Department()).toBeTruthy();
+    expect(new Objective()).toBeTruthy();
   });
 });
