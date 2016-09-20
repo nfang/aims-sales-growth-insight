@@ -44,12 +44,13 @@ describe('Component: Sidebar', () => {
     fixture = TestBed.createComponent(SidebarComponent);
     component = fixture.componentInstance;
     expect(component).toBeTruthy();
+  });
 
+  it('should have a search field', () => {
+    fixture = TestBed.createComponent(SidebarComponent);
+    component = fixture.componentInstance;
     let searchEl = fixture.debugElement.query(By.css('input[type=search]'));
     expect(searchEl).toBeTruthy();
-
-    let listEl = fixture.debugElement.query(By.css('ul'));
-    expect(listEl).toBeTruthy();
   });
 
   it('should list objectives', () => {

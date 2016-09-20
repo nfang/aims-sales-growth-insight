@@ -33,7 +33,6 @@ import { Objective } from '../shared/objective';
   ]
 })
 export class SidebarComponent implements OnInit {
-
   private _items: Array<Objective>;
 
   @Output() selected: EventEmitter<Objective> = new EventEmitter<Objective>();
@@ -71,5 +70,4 @@ export class SidebarComponent implements OnInit {
   select(item) {
     this.selected.emit(item);
   }
-
 }

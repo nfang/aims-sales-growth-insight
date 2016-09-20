@@ -1,6 +1,8 @@
 /* tslint:disable:no-unused-variable */
 
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, async, ComponentFixture } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
+import { DebugElement } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -19,6 +21,9 @@ const fakeInsightService = {
   }
 };
 
+let fixture: ComponentFixture<AppComponent>;
+let component: AppComponent;
+
 describe('App: Aims', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -36,22 +41,48 @@ describe('App: Aims', () => {
     });
   });
 
-  it('should create the app', async(() => {
-    let fixture = TestBed.createComponent(AppComponent);
-    let app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  }));
+  it('should create the app', () => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.debugElement.componentInstance;
+    expect(component).toBeTruthy();
+  });
 
-  // it(`should have as title 'app works!'`, async(() => {
-  //   let fixture = TestBed.createComponent(AppComponent);
-  //   let app = fixture.debugElement.componentInstance;
-  //   expect(app.title).toEqual('app works!');
-  // }));
-  //
-  // it('should render title in a h1 tag', async(() => {
-  //   let fixture = TestBed.createComponent(AppComponent);
-  //   fixture.detectChanges();
-  //   let compiled = fixture.debugElement.nativeElement;
-  //   expect(compiled.querySelector('h1').textContent).toContain('app works!');
-  // }));
+  it('should display logo', () => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.debugElement.componentInstance;
+    let logoEl = fixture.debugElement.query(By.css('img.logo'));
+    expect(logoEl).toBeTruthy();
+  });
+
+  it('should display app name', () => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.debugElement.componentInstance;
+
+    let appNameEl = fixture.debugElement.query(By.css('.title'));
+    let appSubtitleEl = fixture.debugElement.query(By.css('.subtitle'));
+    expect(appNameEl.nativeElement.textContent).toContain('SALES AND GROWTH TOOL');
+    expect(appSubtitleEl.nativeElement.textContent).toContain('an initiative of AIMS');
+  });
+
+  it('should have a sidebar', () => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.debugElement.componentInstance;
+    let el = fixture.debugElement.query(By.directive(SidebarComponent));
+    expect(el).toBeTruthy();
+  });
+
+  it('should have a stack', () => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.debugElement.componentInstance;
+    let el = fixture.debugElement.query(By.directive(StackComponent));
+    expect(el).toBeTruthy();
+  });
+
+  it('should have a description box', () => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.debugElement.componentInstance;
+    let el = fixture.debugElement.query(By.directive(DescriptionComponent));
+    expect(el).toBeTruthy();
+  });
+
 });
