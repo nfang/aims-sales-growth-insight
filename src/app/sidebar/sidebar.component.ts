@@ -9,7 +9,7 @@ import { InsightService } from '../shared/insight.service';
 import { Objective } from '../shared/objective';
 
 @Component({
-  selector: 'sidebar',
+  selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
   animations: [
@@ -33,21 +33,21 @@ import { Objective } from '../shared/objective';
   ]
 })
 export class SidebarComponent implements OnInit {
-
   private _items: Array<Objective>;
 
-  @Output('select')
-  _onSelectEmitter: EventEmitter<Objective> = new EventEmitter<Objective>();
+  @Output() selected: EventEmitter<Objective> = new EventEmitter<Objective>();
 
-  private query: any = '';
+  query: any = '';
+
+  current: Objective;
+
+  searchControl: FormControl = new FormControl();
 
   get items(): Array<Objective> {
     return this._items.filter(item => {
       return item.name.search(this.query) >= 0;
     });
   }
-
-  searchControl: FormControl = new FormControl();
 
   constructor(private _service: InsightService) {
     this._items = this._service.objectives;
@@ -70,7 +70,9 @@ export class SidebarComponent implements OnInit {
   }
 
   select(item) {
-    this._onSelectEmitter.emit(item);
+    if (!item) { return; }
+    this.selected.emit(
+      this.current = (this.current === item ? new Objective() : item)
+    );
   }
-
 }
