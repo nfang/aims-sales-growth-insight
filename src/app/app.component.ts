@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
-import {
-  trigger,
-  state,
-  style,
-  transition,
-  animate
-} from '@angular/core';
+import { animate, state, style, transition, trigger } from '@angular/core';
+
+import { InsightService } from './shared/insight.service';
+import { Objective } from './shared/objective';
+import { Element } from './shared/element';
 
 @Component({
   selector: 'app-root',
@@ -30,15 +28,22 @@ import {
       state('in', style({ transform: 'translateY(0)' })),
       transition('void => *', [
         style({ transform: 'translateY(-100%)' }),
-        animate('500ms ease-out')
+        animate('500ms 500ms ease-out')
       ])
     ])
   ]
 })
 export class AppComponent {
-  title = 'app works!';
+  selectedObjective: Objective = new Objective();
 
-  constructor() {
+  get selectedElements(): Array<Element> {
+    return this._service.findElementsFor(this.selectedObjective);
+  }
 
+  constructor(private _service: InsightService) { }
+
+  setObjective(objective: Objective) {
+    this.selectedObjective = new Objective();
+    setTimeout(() => { this.selectedObjective = objective; }, 200);
   }
 }

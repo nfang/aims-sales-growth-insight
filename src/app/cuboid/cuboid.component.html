@@ -1,8 +1,11 @@
 <div class="cuboid">
-  <div class="face front">front</div>
-  <div class="face back"></div>
-  <div class="face left"></div>
-  <div class="face right"></div>
-  <div class="face top"></div>
-  <div class="face bottom"></div>
+  <div class="face front" [style.background]="frontColor">
+    <!-- Uncomment to display text -->
+    <!-- {{text}} -->
+  </div>
+  <div class="face back" [style.background]="frontColor"></div>
+  <div class="face left side" [style.background]="sideColor"></div>
+  <div class="face right side" [style.background]="sideColor"></div>
+  <div class="face top side" [style.background]="sideColor"></div>
+  <div class="face bottom side" [style.background]="sideColor"></div>
 </div>

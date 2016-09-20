@@ -1,9 +1,16 @@
 @import './shared/variables';
 
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 header {
   box-sizing: border-box;
   color: $text-color;
   font-family: $sans-serif-font-family;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -40,7 +47,12 @@ header {
 }
 
 main {
+  flex-grow: 1;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+
+  sidebar {
+    align-self: stretch;
+  }
 }

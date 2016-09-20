@@ -9,7 +9,7 @@
   </div>
 </header>
 <main>
-  <sidebar></sidebar>
-  <stack></stack>
-  <description></description>
+  <app-sidebar (selected)="setObjective($event)"></app-sidebar>
+  <app-stack [highlightedElements]="selectedElements"></app-stack>
+  <app-description [content]="selectedObjective.description"></app-description>
 </main>

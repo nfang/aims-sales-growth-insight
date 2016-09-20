@@ -1,31 +1,42 @@
+$board-spacing: 85px;
+
 :host {
-  perspective: 1200px;
-  perspective-origin: center right;
+  perspective: 2400px;
+  perspective-origin: 75% -280px;
   transform-style: preserve-3d;
+  flex-grow: 1;
+  align-self: stretch;
 }
 
 .stack {
   position: relative;
   transform-style: preserve-3d;
-  transform: rotateX(90deg) rotate(30deg);
+  transform-origin: center center;
+  transform: rotateX(90deg) rotate(18deg) translateZ(180px) translateX(27.5%) translateY(180px);
+  height: 100%;
 }
 
 .board {
   position: absolute;
   display: flex;
   flex-wrap: wrap;
-  width: 600px;
+  width: 720px;
+  transform-origin: center center;
   transform-style: preserve-3d;
 }
 
-.board.top {
-  transform: translateZ(50px);
-}
+.board.top { transform: translateZ($board-spacing); }
 
-.board.middle {
-  /*transform: translateZ(90px);*/
-}
+.board.middle { }
 
-.board.bottom {
-  transform: translateZ(-50px);
+.board.bottom { transform: translateZ(-$board-spacing); }
+
+.shadow {
+  background: #ddd;
+  width: 720px;
+  height: 480px;
+  position: absolute;
+  transform-style: preserve-3d;
+  transform: translateZ(-280px);
+  -webkit-filter: blur(8px);
 }
