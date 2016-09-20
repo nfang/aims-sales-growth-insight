@@ -36,9 +36,9 @@ export class SidebarComponent implements OnInit {
 
   private _items: Array<Objective>;
 
-  @Output() objectiveSelected: EventEmitter<Objective> = new EventEmitter<Objective>();
+  @Output() selected: EventEmitter<Objective> = new EventEmitter<Objective>();
 
-  private query: any = '';
+  query: any = '';
 
   get items(): Array<Objective> {
     return this._items.filter(item => {
@@ -69,7 +69,7 @@ export class SidebarComponent implements OnInit {
   }
 
   select(item) {
-    this.objectiveSelected.emit(item);
+    this.selected.emit(item);
   }
 
 }
