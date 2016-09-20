@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 const Color = require('color');
 
 @Component({
-  selector: 'cuboid',
+  selector: 'app-cuboid',
   templateUrl: './cuboid.component.html',
   styleUrls: ['./cuboid.component.scss']
 })

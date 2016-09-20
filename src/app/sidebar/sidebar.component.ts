@@ -9,7 +9,7 @@ import { InsightService } from '../shared/insight.service';
 import { Objective } from '../shared/objective';
 
 @Component({
-  selector: 'sidebar',
+  selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
   animations: [
@@ -36,8 +36,7 @@ export class SidebarComponent implements OnInit {
 
   private _items: Array<Objective>;
 
-  @Output('select')
-  _onSelectEmitter: EventEmitter<Objective> = new EventEmitter<Objective>();
+  @Output() objectiveSelected: EventEmitter<Objective> = new EventEmitter<Objective>();
 
   private query: any = '';
 
@@ -70,7 +69,7 @@ export class SidebarComponent implements OnInit {
   }
 
   select(item) {
-    this._onSelectEmitter.emit(item);
+    this.objectiveSelected.emit(item);
   }
 
 }

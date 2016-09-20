@@ -1,26 +1,26 @@
 <div class="stack">
 
   <div class="board top" [@topBoardEnter]>
-    <cuboid *ngFor="let item of salesElements"
+    <app-cuboid *ngFor="let item of salesElements"
       [color]="'#cf1945'"
       [highlight]="isHighlighted(item)"
-      [text]="item.name"></cuboid>
+      [text]="item.name"></app-cuboid>
   </div>
 
   <div class="board middle" [@midBoardEnter]>
-    <cuboid *ngFor="let item of operationalElements"
+    <app-cuboid *ngFor="let item of operationalElements"
       [color]="'#2f2f4c'"
       [highlight]="isHighlighted(item)"
-      [text]="item.name"></cuboid>
+      [text]="item.name"></app-cuboid>
   </div>
 
   <div class="board bottom" [@btmBoardEnter]>
-    <cuboid [color]="'#282123'"></cuboid>
-    <cuboid [color]="'#282123'"></cuboid>
-    <cuboid [color]="'#282123'"></cuboid>
-    <cuboid [color]="'#282123'"></cuboid>
-    <cuboid [color]="'#282123'"></cuboid>
-    <cuboid [color]="'#282123'"></cuboid>
+    <app-cuboid [color]="'#282123'"></app-cuboid>
+    <app-cuboid [color]="'#282123'"></app-cuboid>
+    <app-cuboid [color]="'#282123'"></app-cuboid>
+    <app-cuboid [color]="'#282123'"></app-cuboid>
+    <app-cuboid [color]="'#282123'"></app-cuboid>
+    <app-cuboid [color]="'#282123'"></app-cuboid>
   </div>
 
   <div class="shadow" [@shadowEnter]></div>

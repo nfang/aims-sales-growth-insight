@@ -5,7 +5,7 @@ import { InsightService } from '../shared/insight.service';
 import { Element } from '../shared/element';
 
 @Component({
-  selector: 'stack',
+  selector: 'app-stack',
   templateUrl: './stack.component.html',
   styleUrls: ['./stack.component.scss'],
   animations: [

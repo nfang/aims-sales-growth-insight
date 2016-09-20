@@ -42,7 +42,7 @@ export class AppComponent {
 
   constructor(private _service: InsightService) { }
 
-  setContent(objective: Objective) {
+  setObjective(objective: Objective) {
     this.selectedObjective = new Objective();
     setTimeout(() => { this.selectedObjective = objective; }, 200);
   }

@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/core';
 
 @Component({
-  selector: 'description',
+  selector: 'app-description',
   templateUrl: './description.component.html',
   styleUrls: ['./description.component.scss'],
   animations: [
