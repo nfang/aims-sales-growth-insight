@@ -39,7 +39,12 @@ li {
   transition: color .3s linear, background .3s linear;
 
   &:hover {
-    background: #e4e4e4;
+    background: #efefef;
+    color: #cf1945;
+  }
+
+  &.active {
+    background: #e1e1e1;
     color: #cf1945;
   }
 }

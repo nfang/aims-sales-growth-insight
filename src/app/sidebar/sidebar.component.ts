@@ -39,13 +39,15 @@ export class SidebarComponent implements OnInit {
 
   query: any = '';
 
+  current: Objective;
+
+  searchControl: FormControl = new FormControl();
+
   get items(): Array<Objective> {
     return this._items.filter(item => {
       return item.name.search(this.query) >= 0;
     });
   }
-
-  searchControl: FormControl = new FormControl();
 
   constructor(private _service: InsightService) {
     this._items = this._service.objectives;
@@ -68,6 +70,9 @@ export class SidebarComponent implements OnInit {
   }
 
   select(item) {
-    this.selected.emit(item);
+    if (!item) { return; }
+    this.selected.emit(
+      this.current = (this.current === item ? new Objective() : item)
+    );
   }
 }
