@@ -4,6 +4,9 @@ $sidebar-font-size: .8rem;
 $sidebar-font-weight: 300;
 $sidebar-width: 280px;
 
+$sidebar-item-active-bg: #e0e0e0;
+$sidebar-item-hover-bg: lighten($sidebar-item-active-bg, 2%);
+
 :host {
   display: block;
   margin-right: 1rem;
@@ -39,12 +42,12 @@ li {
   transition: color .3s linear, background .3s linear;
 
   &:hover {
-    background: #efefef;
+    background: $sidebar-item-hover-bg;
     color: #cf1945;
   }
 
   &.active {
-    background: #e1e1e1;
+    background: $sidebar-item-active-bg;
     color: #cf1945;
   }
 }
