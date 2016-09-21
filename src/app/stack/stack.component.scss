@@ -24,11 +24,17 @@ $board-spacing: 85px;
   transform-style: preserve-3d;
 }
 
-.board.top { transform: translateZ($board-spacing); }
+.board.top {
+  transform: translateZ($board-spacing);
+  z-index: 30;
+}
 
-.board.middle { }
+.board.middle { z-index: 20; }
 
-.board.bottom { transform: translateZ(-$board-spacing); }
+.board.bottom {
+  transform: translateZ(-$board-spacing);
+  z-index: 10;
+}
 
 .shadow {
   background: #ddd;
@@ -38,4 +44,5 @@ $board-spacing: 85px;
   transform-style: preserve-3d;
   transform: translateZ(-280px);
   -webkit-filter: blur(8px);
+  z-index: 0;
 }
