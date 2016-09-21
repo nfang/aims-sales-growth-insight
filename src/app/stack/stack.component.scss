@@ -4,8 +4,7 @@ $board-spacing: 85px;
   perspective: 2400px;
   perspective-origin: 75% -280px;
   transform-style: preserve-3d;
-  flex-grow: 1;
-  align-self: stretch;
+  display: flex;
 }
 
 .stack {
@@ -13,7 +12,7 @@ $board-spacing: 85px;
   transform-style: preserve-3d;
   transform-origin: center center;
   transform: rotateX(90deg) rotate(18deg) translateZ(180px) translateX(27.5%) translateY(180px);
-  height: 100%;
+  flex-grow: 1;
 }
 
 .board {
@@ -25,11 +24,17 @@ $board-spacing: 85px;
   transform-style: preserve-3d;
 }
 
-.board.top { transform: translateZ($board-spacing); }
+.board.top {
+  transform: translateZ($board-spacing);
+  z-index: 30;
+}
 
-.board.middle { }
+.board.middle { z-index: 20; }
 
-.board.bottom { transform: translateZ(-$board-spacing); }
+.board.bottom {
+  transform: translateZ(-$board-spacing);
+  z-index: 10;
+}
 
 .shadow {
   background: #ddd;
@@ -39,4 +44,5 @@ $board-spacing: 85px;
   transform-style: preserve-3d;
   transform: translateZ(-280px);
   -webkit-filter: blur(8px);
+  z-index: 0;
 }

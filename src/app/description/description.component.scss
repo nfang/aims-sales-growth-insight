@@ -1,5 +1,13 @@
 @import '../shared/variables';
 
+:host {
+  /**
+   * Workaround for z-index bug in Safari: 
+   * http://stackoverflow.com/questions/5472802/css-z-index-lost-after-webkit-transform-translate3d
+   */
+  transform: translateZ(0px);
+}
+
 .desc {
   box-sizing: border-box;
   padding: 10px 32px;
