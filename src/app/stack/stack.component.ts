@@ -31,9 +31,9 @@ import { Element } from '../shared/element';
       ])
     ]),
     trigger('shadowEnter', [
-      state('in', style({ opacity: 1, '-webkit-filter': 'blur(8px)' })),
+      state('in', style({ opacity: 1 })),
       transition('void => *', [
-        style({ opacity: 0, '-webkit-filter': 'blur(16px)' }),
+        style({ opacity: 0 }),
         animate('1900ms 1100ms cubic-bezier(0.0, 0.0, 0.2, 1)')
       ])
     ])
