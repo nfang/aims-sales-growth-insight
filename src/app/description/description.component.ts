@@ -7,8 +7,12 @@ import { animate, state, style, transition, trigger } from '@angular/core';
   styleUrls: ['./description.component.scss'],
   animations: [
     trigger('descInOut', [
-      state('in', style({ transform: 'translateX(0)' })),
-      state('out', style({ transform: 'translateX(100%)' })),
+      /**
+       * MUST use translate3d to work around z-index bug in Safari:
+       * http://stackoverflow.com/questions/5472802/css-z-index-lost-after-webkit-transform-translate3d
+       */
+      state('in', style({ transform: 'translate3d(0px,0px,0px)' })),
+      state('out', style({ transform: 'translate3d(100%,0px,0px)' })),
       transition('out => in', [
         animate('400ms cubic-bezier(0.0, 0.0, 0.2, 1)')
       ]),
